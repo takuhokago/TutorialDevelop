@@ -11,7 +11,7 @@
     <h2>User更新</h2>
     <form method="post" th:action="@{/user/update/{id}/(id=${user.id})}" th:object="${user}">
         <label for="id">ID</label>
-        <input type="hidden" id="id" name="id" th:value="*{id}">
+        <input type="hidden" id="id" name="id" th:value="*{id}" th:text="*{id}">
         <br>
         <label for="name">名前</label>
         <input type="text" th:field="*{name}">
