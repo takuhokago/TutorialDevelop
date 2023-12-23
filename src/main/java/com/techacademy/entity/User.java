@@ -16,8 +16,10 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.Data;
 
 @Data
@@ -50,12 +52,14 @@ public class User {
     /** 年齢 */
     @Min(0)
     @Max(120)
+    @NotNull
     private Integer age;
 
     /** メールアドレス。50桁。null挙か */
     @Column(length = 50)
     @Email
     @Length(max=50)
+    @NotBlank
     private String email;
 
     @OneToOne(mappedBy="user")
